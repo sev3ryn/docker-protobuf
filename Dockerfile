@@ -9,7 +9,7 @@ RUN go get -u -ldflags '-w -s' google.golang.org/protobuf/cmd/protoc-gen-go && \
 
 FROM alpine:3.12
 
-RUN apk add --no-cache protobuf git openssh-client
+RUN apk add --no-cache protobuf git openssh-client gettext
 
 COPY --from=builder /go/bin/protoc-gen-go /usr/local/bin/
 COPY --from=builder /protobuf /protobuf
